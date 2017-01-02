@@ -1,6 +1,4 @@
 # Tavaraparseri
-Tavaravirran tilastointi pienessä kierrätyskeskuksessa
-
 Ohjelmalla voidaan luokitella päivittäistä tavaravirtaa hierarkisiin ryhmiin esim. käyttötarkoituksen mukaan.  
 Ohjelma soveltuu kierrätyskeskuksiin, kirpputoreille, tms. jossa tarvitaan pienimuotoista tavaraseurantaa.
 Data voidaan viedä taulukkolaskentaan mukautuvampaa tilastointia varten.
@@ -21,7 +19,7 @@ setteri
 Rattaat
 </pre>
 
-Ohjelma jäsentää tavarat, ja järjestää ne esim. viikottaiseen taulukkoon. Sitten lista luokitellaan luokitustiedoston mukaan. Paketissa löytyy luokitustiedosto coicop (käyttötarkoituksen mukaan), mutta käyttäjä voi tehdän oman luokituksen.
+Ohjelma jäsentää tavarat, ja järjestää ne esim. viikottaiseen taulukkoon. Sitten lista luokitellaan luokitustiedoston mukaan. Paketissa löytyy luokitustiedosto coicop.xml (käyttötarkoituksen mukaan), mutta käyttäjä voi tehdän oman luokituksen.
 
 Ohjelma tunnistaa tavarat avainsanojen perusteella, jonka jälkeen se ilmoittaa tunnistettujen määrän, sekä listaa tunnistetut ja tunnistamattomat tavarat omina taulukoinaan.
 
