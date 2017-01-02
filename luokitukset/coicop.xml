@@ -1,0 +1,628 @@
+﻿<luokitus xmlns="http://www.w3.org/1999/xhtml">
+    
+    <kuvaus>
+        <p>Yksilöllisen     kulutuksen     käyttötarkoituksenmukainen  luokitus 
+        COICOP, <i>Classification of  Individual  Consumption  According  to  
+        Purpose</i>, on  laadittu  kotitalouksien,  kotitalouksia palvelevien  
+        voittoa  tavoittelemattomien  yhteisöjen  ja  julkisyhteisöjen  
+        yksilöllisten  kulutusmenojen   luokittelua   ja   analysointia   
+        varten. Luokituksen ensisijaisena tarkoituksena on luokitella  
+        kotitalouksien  eri  tarkoituksiin  hankkimat  tavarat  ja  palvelut  
+        pääsiallisen  käyttötarkoituksen  mukaan.  Luokitusta  käytetään  
+        kansantalouden  tilinpidossa,  kulutustutkimuksessa ja 
+        kuluttajahintaindekseissä</p>
+        <p>Lisätietoa: <a href="http://www.tilastokeskus.fi/meta/luokitukset/coicop/011-2013/index.html">http://www.tilastokeskus.fi/meta/luokitukset/coicop/011-2013/index.html</a></p>
+    </kuvaus>
+    
+    <kategoria id="" kuvaus="Kaikki">
+			<!--
+            <kategoria id="01" kuvaus="ELINTARVIKKEET JA ALKOHOLITTOMAT JUOMAT"></kategoria>
+            <kategoria id="02" kuvaus="ALKOHOLIJUOMAT, TUPAKKA">
+				<tavara>sikaria</tavara>
+			</kategoria>
+			-->
+            <kategoria id="03" kuvaus="VAATETUS JA JALKINEET">
+                <kategoria id="1" kuvaus="Vaatetus">
+                    <kategoria id="1" kuvaus="Kankaat">
+						<tavara>kankaita</tavara>
+						<tavara>kankaanpala</tavara>
+						<tavara>kangas</tavara>								
+						<tavara>tilkkuja</tavara>						
+					</kategoria>
+                    <kategoria id="2" kuvaus="Vaatteet">
+                        <tavara>pusero</tavara>
+						<tavara>pleiseri</tavara>
+                        <tavara>paita</tavara>
+						<tavara>paitoja</tavara>
+						<tavara>paitoja</tavara>
+                        <tavara>housut</tavara>
+						<tavara>tumput</tavara>
+						<tavara>hanskat</tavara>
+						<tavara>sormikkaat</tavara>
+						<tavara>mekko</tavara>
+						<!--
+                        <kategoria id="1" kuvaus="Miesten vaatteet"></kategoria>
+                        <kategoria id="2" kuvaus="Naisten vaatteet">
+							<tavara>mekko</tavara>
+						</kategoria>
+                        <kategoria id="3" kuvaus="Lasten vaatteet (3-13 vuotiaat)"></kategoria>
+                        <kategoria id="4" kuvaus="Vauvojen vaatteet (0-2 vuotiaat)"></kategoria>
+						-->
+                    </kategoria>
+                    <kategoria id="3" kuvaus="Asusteet ja muut vaatetustarvikkeet">
+                        <kategoria id="1" kuvaus="Asusteet">
+                            <tavara>sadetakki</tavara>
+                            <tavara>reppu</tavara>                    
+                            <tavara>laukku</tavara>
+                            <tavara>aurinkolasit</tavara>                    
+                            <tavara>esiliina</tavara>
+							<tavara>vyö</tavara>
+							<tavara>huivi</tavara>
+							<!--
+                            <kategoria id="1" kuvaus="Päähineet ja käsineet"></kategoria>
+                            <kategoria id="2" kuvaus="Huivit ja kaulaliinat">
+							</kategoria>
+							-->
+                        </kategoria>
+                        <kategoria id="2" kuvaus="Muut vaatetustarvikkeet">
+                            <kategoria id="1" kuvaus="Ompelutarvikkeet">
+                                <tavara>lankarulla</tavara>							
+                                <tavara>lankaa</tavara>
+								<tavara>lankakerä</tavara>
+                                <tavara>värttinä</tavara>
+                                <tavara>lankoja</tavara>
+								<tavara>lankapussi</tavara>
+                            </kategoria>
+                        </kategoria>
+                    </kategoria>
+                </kategoria>
+                <kategoria id="2" kuvaus="Jalkineet">
+					<tavara>kengät</tavara>
+					<tavara>saappaat</tavara>
+				</kategoria>
+            </kategoria>
+            <kategoria id="04" kuvaus="ASUMINEN, VESI, SÄHKÖ, KAASU JA MUUT POLTTOAINEET">
+				<tavara>kattolaminaatti</tavara>
+				<tavara>suihkuletku</tavara>
+				<tavara>lattialaatat</tavara>
+				<tavara>korkkimaton</tavara>
+				<tavara>korkkimatto</tavara>
+				<tavara>muovimaton</tavara>
+				<tavara>muovimatto</tavara>
+			</kategoria>
+            <kategoria id="05" kuvaus="KALUSTEET, KOTITALOUSKONEET JA YLEINEN KODINHOITO">
+                <tavara>jatkojohto</tavara>
+                <tavara>lokero</tavara>
+                <tavara>teline</tavara>
+                <kategoria id="1" kuvaus="Huonekalut ja kalusteet, matot ja muut lattianpäällysteet">
+                    <kategoria id="1" kuvaus="Huonekalut ja kalusteet">
+                        <tavara>palli</tavara>
+						<tavara>kolmijalka</tavara>
+						<tavara>jakkara</tavara>
+                        <tavara>hylly</tavara>
+						<tavara>rahi</tavara>
+                        <kategoria id="1" kuvaus="Olohuoneen ja ruokailuhuoneen kalusteet">
+                            <tavara>sohvapöytä</tavara>
+                            <tavara>ruokapöytä</tavara>
+                            <tavara>keittiöpöytä</tavara>
+                            <tavara>nojatuoli</tavara>
+                            <tavara>sohva</tavara>
+                            <tavara>kirjahylly</tavara>
+                            <tavara>lipasto</tavara>
+                            <tavara>nojatuoli</tavara>
+                            <tavara>syöttötuoli</tavara>
+                            <tavara>tuolia</tavara>
+                            <tavara>tv-taso</tavara>
+                            <tavara>pöytä</tavara>
+							<tavara>penkki</tavara>
+							<tavara>penkit</tavara>
+                        </kategoria>
+                        <kategoria id="2" kuvaus="Makuuhuoneen kalusteet">
+                            <tavara>sänky</tavara>
+                            <tavara>sängyt</tavara>
+                            <tavara>patja</tavara>                    
+                        </kategoria>
+						<!--
+                        <kategoria id="5" kuvaus="Puutarhakalusteet"></kategoria>
+						-->
+                        <kategoria id="6" kuvaus="Valaisimet">
+                            <tavara>valaisin</tavara>
+                            <tavara>yövalo</tavara>
+							<tavara>yölamppu</tavara>
+                            <tavara>pöytälamppu</tavara>
+                            <tavara>kattolamppu</tavara>  
+							<tavara>jalkalamppu</tavara>
+							<tavara>laavalamppu</tavara>
+							<tavara>plafondi</tavara>
+							<tavara>lampunkupu</tavara>
+							<tavara>lampunvarjostin</tavara>
+                        </kategoria>
+                        <kategoria id="7" kuvaus="Muut huonekalut ja kalusteet">
+                            <tavara>kynttilänjalka</tavara>
+                            <tavara>peili</tavara>
+                            <tavara>koriste</tavara>
+							<tavara>tuikku</tavara>
+							<tavara>kynttelikkö</tavara>
+                            <tavara>kehys</tavara>
+							<tavara>kehykset</tavara>
+							<tavara>kehyksiä</tavara>
+                            <tavara>lyhty</tavara>
+                            <tavara>taulu</tavara>
+                            <tavara>muovikukka</tavara>
+							<tavara>naulakko</tavara>
+							<tavara>tabletit</tavara>
+							<tavara>muovikukat</tavara>
+							<tavara>vaasi</tavara>
+							<tavara>pärekori</tavara>
+							<tavara>koreja</tavara>
+                        </kategoria>            
+                    </kategoria>
+                    <kategoria id="2" kuvaus="Matot ja muut lattianpäällysteet">
+                        <tavara>matto</tavara>
+                    </kategoria>
+                </kategoria>
+                <kategoria id="2" kuvaus="Kodintekstiilit">
+                    <kategoria id="0" kuvaus="Kodintekstiilit">
+                        <kategoria id="1" kuvaus="Sisustuskankaat ja verhot">
+                            <tavara>verho</tavara>
+                            <tavara>seinävaate</tavara>
+							<tavara>ryijy</tavara>
+							<tavara>kanavatyö</tavara>
+							<tavara>poppana</tavara>
+                        </kategoria>
+                        <kategoria id="2" kuvaus="Vuodevaatteet">
+                            <kategoria id="1" kuvaus="Huovat, viltit ja päiväpeitot">
+                                <tavara>huopa</tavara>
+                                <tavara>viltti</tavara>
+                            </kategoria>
+                            <kategoria id="2" kuvaus="Tyynyt ja peitot">
+                                <tavara>peitto</tavara>
+                                <tavara>tyyny</tavara>  
+								<tavara>täkki</tavara> 								
+                            </kategoria>
+                            <kategoria id="3" kuvaus="Vuodevaatteet">
+                                <tavara>lakana</tavara>
+                                <tavara>tyynynpäällinen</tavara>
+                                <tavara>tyynyliina</tavara>
+                                <tavara>tyynynvaaru</tavara>
+                            </kategoria>
+                        </kategoria>
+                        <kategoria id="3" kuvaus="Pöytäliinat ja pyyhkeet">
+                            <tavara>pöytäliina</tavara>
+                            <tavara>pyyhe</tavara>
+							<tavara>kaitaliina</tavara>
+							<tavara>pitsiliina</tavara>
+							<tavara>pitsiliinoja</tavara>
+                        </kategoria>
+                    </kategoria>
+                </kategoria>
+                <kategoria id="3" kuvaus="Kodinkoneet">
+                        <tavara>vedenkeitin</tavara>
+                        <tavara>kahvinkeitin</tavara>
+                        <tavara>mikro</tavara>                                
+                        <tavara>tiskikone</tavara>                
+                        <tavara>vispikone</tavara>                                
+                        <tavara>vispilä</tavara>
+						<tavara>silistyslauta</tavara>
+                </kategoria>
+                <kategoria id="4" kuvaus="Lasitavarat, astiat ja kotitaloustarvikkeet">
+						<tavara>astioita</tavara>
+                        <kategoria id="0" kuvaus="Lasitavarat, astiat ja kotitaloustarvikkeet">
+                            <kategoria id="1" kuvaus="Lasi-, kristalli-, keramiikka- ja posliinitavarat">
+                                <tavara>lautanen</tavara>
+                                <tavara>lautasta</tavara>
+                                <tavara>lautaset</tavara>
+                                <tavara>lautasia</tavara>
+                                <tavara>kulho</tavara>
+                                <tavara>lasi</tavara>
+                                <tavara>kannu</tavara>
+                                <tavara>malja</tavara>
+                                <tavara>vuoka</tavara>
+                                <tavara>kuppi</tavara>
+                                <tavara>muki</tavara>
+                                <tavara>maljakko</tavara>
+                                <tavara>tarjotin</tavara>
+                                <tavara>tuoppi</tavara>
+                                <tavara>tooppi</tavara>
+                                <tavara>kippo</tavara>
+                                <tavara>tassi</tavara>
+                                <tavara>astiasto</tavara>                               
+                                <tavara>mukeja</tavara>
+                                <tavara>pikari</tavara>
+                                <tavara>kupit</tavara>
+                                <tavara>kermanekka</tavara>
+                                <tavara>jälkiruoka astia</tavara>
+                                <tavara>jälkiruoka-astia</tavara>
+                                <tavara>tarjottimia</tavara>
+                                <tavara>laseja</tavara>
+                                <tavara>tasseja</tavara>
+                                <tavara>kuppeja</tavara>
+								<tavara>nekka</tavara>                                
+                            </kategoria>
+                            <kategoria id="2" kuvaus="Ruokailuvälineet">
+                                <kategoria id="1" kuvaus="Ruokailuvälineet, veitset, haarukat, lusikat">
+                                        <tavara>lusikka</tavara>
+										<tavara>lusikoita</tavara>
+                                        <tavara>haarukka</tavara>
+                                        <tavara>veitsi</tavara>
+                                        <tavara>haarukoita</tavara>                                        
+                                        <tavara>haarukat</tavara>                                        
+                                        <tavara>ruokailuväline</tavara>
+                                        <tavara>veitset</tavara>
+                                        <tavara>lusikat</tavara>              
+										<tavara>veistä</tavara>
+                                </kategoria>
+                                <!--<kategoria id="2" kuvaus="Keittiöveitset"></kategoria>-->
+                            </kategoria>
+                            <kategoria id="3" kuvaus="Ei-sähköiset keittiövälineet">
+                                <tavara>leivospelti</tavara>
+                                <tavara>munakupit</tavara>
+                                <tavara>jääpalamuotti</tavara>
+                                <tavara>kahvisuodatin</tavara>
+                                <tavara>salaattilinko</tavara>
+                                <tavara>kaulimet</tavara>  
+								<tavara>sitruunapuristin</tavara>								
+                                <tavara>raastin</tavara>
+                                <tavara>siivilä</tavara>
+                                <tavara>teesihti</tavara>
+                                <tavara>leikkuulauta</tavara>
+                                <tavara>kaulin</tavara>
+                                <tavara>patalappu</tavara>
+                                <tavara>jääpalamuotti</tavara>
+                                <tavara>uuniastia</tavara>
+                                <tavara>purkinavain</tavara>
+                                <tavara>purkki</tavara>
+                                <tavara>rasia</tavara>
+                                <tavara>kauha</tavara>
+                                <tavara>pursotin</tavara>
+                                <tavara>mikroastia</tavara> 
+								<tavara>desilitramitta</tavara>								
+                                <tavara>patalaput</tavara>                                
+                                <tavara>sirottimet</tavara>
+                                <tavara>sipulileikkuri</tavara>
+                                <tavara>kahvimylly</tavara>
+                                <tavara>leipälaatikko</tavara>
+                                <tavara>uunisuojat</tavara>                                
+                                <tavara>kalanperkuurauta</tavara>
+                                <tavara>keittiötarvike</tavara>
+                                <tavara>tarjoiluastia</tavara>
+                                <tavara>leukkuulauta</tavara>
+                                <tavara>asetti</tavara>
+								<tavara>juustokupu</tavara>
+								<tavara>pakasterasioita</tavara>
+								<tavara>kakkukupu</tavara>
+								<tavara>pussinsulkija</tavara>
+								<tavara>sokerikko</tavara>
+                                <kategoria id="1" kuvaus="Pannut ja kattilat">
+                                    <kategoria id="100" kuvaus="Paistinpannu">
+                                        <tavara>pannu</tavara>
+                                    </kategoria>
+                                    <kategoria id="200" kuvaus="Kattila">
+                                        <tavara>kattila</tavara>
+                                        <tavara>kasari</tavara>
+                                    </kategoria>
+                                </kategoria>
+                            </kategoria>
+                            <!--<kategoria id="4" kuvaus="Ei-sähköiset kodintarvikkeet"></kategoria>-->
+                        </kategoria>
+                </kategoria>
+                <kategoria id="5" kuvaus="Kodin ja puutarhan työkalut ja laitteet">
+					<!--
+                    <kategoria id="1" kuvaus="Suuret työkalut ja laitteet">
+                        <kategoria id="1" kuvaus="Moottorikäyttöiset työkalut ja -laitteet"></kategoria>
+                    </kategoria>
+					-->
+                    <kategoria id="2" kuvaus="Pienet työkalut ja erilaiset lisävarusteet">
+                        <tavara>oksasakset</tavara>
+                        <tavara>grilli</tavara>
+                        <tavara>verhotanko</tavara>
+                        <tavara>paristo</tavara>
+                        <tavara>energiasäästölamppu</tavara>
+						<tavara>ruukut</tavara>
+						<tavara>lämpömittari</tavara>
+						<tavara>kosteusmittari</tavara>
+						<tavara>puutarhavälineet</tavara>
+						<tavara>kärpäslätkä</tavara>
+						<tavara>hyttysverkko</tavara>
+                    </kategoria>
+                </kategoria>
+                <kategoria id="6" kuvaus="Taloudenhoitoon liittyvät tavarat ja palvelut">
+                    <kategoria id="1" kuvaus="Kodin kulutustavarat">
+                        <kategoria id="1" kuvaus="Siivous- ja puhdistustuotteet">
+                            <tavara>pesuaine</tavara>
+                            <tavara>tiskiaine</tavara>
+                        </kategoria>
+                        <kategoria id="2" kuvaus="Muut kodin kulutustuotteet">
+                            <tavara>harja</tavara>
+                            <tavara>moppi</tavara>
+                            <tavara>siivousliina</tavara>
+                            <tavara>astiapyyhke</tavara>
+                            <tavara>mikrokuituliina</tavara>
+                            <tavara>lautasliina</tavara>
+                            <tavara>tiskiaine</tavara>
+                            <tavara>kynttilä</tavara>
+                            <tavara>muovipussi</tavara>
+                            <tavara>muovikassi</tavara>
+                            <tavara>ostoskassi</tavara>
+                            <tavara>jätepussi</tavara>
+                            <tavara>biojätepussi</tavara>            
+                        </kategoria>
+                    </kategoria>
+                </kategoria>
+            </kategoria>
+            <kategoria id="06" kuvaus="TERVEYS">
+                <kategoria id="1" kuvaus="Lääkevalmisteet, hoitolaitteet ja -välineet">
+					<!--
+                    <kategoria id="1" kuvaus="Muut lääkevalmisteet">
+                        <kategoria id="1" kuvaus="Raskaustestit ja mekaaniset ehkäisyvälineet"></kategoria>
+                    </kategoria>
+					-->
+                    <kategoria id="2" kuvaus="Muut lääkevalmisteet">
+                        <kategoria id="1" kuvaus="Silmälasit ja piilolinssit">
+                            <tavara>silmälasit</tavara>       
+                            <tavara>lukulasit</tavara>       
+                        </kategoria>
+                        <kategoria id="2" kuvaus="Muut hoitolaitteet ja -välineet">
+                            <tavara>verenpainemittari</tavara>
+                            <tavara>kävelykeppi</tavara>
+							<tavara>lääkekaappi</tavara>
+                        </kategoria>
+                    </kategoria>
+                </kategoria>
+            </kategoria>
+            <kategoria id="07" kuvaus="LIIKENNE">
+                <kategoria id="1" kuvaus="Ajoneuvon hankinta">
+                    <kategoria id="1" kuvaus="Polkupyörät">
+                        <tavara>polkupyörä</tavara>  
+                        <tavara>lastenpyörä</tavara>
+                    </kategoria>
+                </kategoria>
+                <kategoria id="2" kuvaus="Yksityisajoneuvojen käyttö">
+                    <tavara>navigaattori</tavara>
+					<tavara>lisäjarruvalo</tavara>
+                </kategoria>
+				<!--
+                <kategoria id="3" kuvaus="Julkinen liikenne"></kategoria>
+				-->
+            </kategoria>
+            <kategoria id="08" kuvaus="VIESTINTÄ">
+                <kategoria id="1" kuvaus="Postipalvelut">
+                    <tavara>kirjekuori</tavara>     
+					<tavara>kortteja</tavara>
+                </kategoria>
+                <kategoria id="2" kuvaus="Puhelin- ja telekopiolaitteet">
+                    <tavara>puhelin</tavara>     
+                    <tavara>kännykkä</tavara>     
+                </kategoria>
+				<!--
+                <kategoria id="3" kuvaus="Puhelin- ja telekopiopalvelut"></kategoria>
+				-->
+            </kategoria>
+            <kategoria id="09" kuvaus="KULTTUURI JA VAPAA-AIKA">
+                <kategoria id="1" kuvaus="Audiovisuaaliset laitteet, valokuvauslaitteet ja tietojenkäsittelylaitteet">
+                    <kategoria id="1" kuvaus="Äänen ja kuvan vastaanottoon, tallentamiseen ja toistoon käytetyt laitteet">
+                        <tavara>stereo</tavara>     
+                        <tavara>televisio</tavara>
+                        <tavara>kuvanauhuri</tavara>
+                        <tavara>videot</tavara>
+                        <tavara>lp-levy</tavara>
+                        <tavara>dvd-soitin</tavara>
+                        <tavara>digiboksi</tavara>
+                        <tavara>digiboxi</tavara>
+                        <tavara>kotiteatteri</tavara>
+                        <tavara>MP3-soitin</tavara>
+                        <tavara>kuuloke</tavara>
+						<tavara>taskuradio</tavara>
+						<tavara>matkaradio</tavara>
+                    </kategoria>
+                    <kategoria id="2" kuvaus="Valokuvaus- ja elokuvalaitteet ja optiset laitteet">
+                        <tavara>kamera</tavara>
+						<tavara>projektori</tavara>
+                    </kategoria>
+                    <kategoria id="3" kuvaus="Tietojenkäsittelylaitteet">
+                        <tavara>tietokone</tavara>
+                        <tavara>kannettava tietokone</tavara>
+                        <tavara>läppäri</tavara>
+                        <tavara>näyttö</tavara>
+                        <tavara>tulostin</tavara>
+                        <tavara>skanneri</tavara>
+                        <tavara>näppäimistö</tavara>
+                        <tavara>hiiri</tavara>
+                        <tavara>asema</tavara>
+						<tavara>kirjoituskone</tavara>
+                    </kategoria>
+                    <kategoria id="4" kuvaus="Tallennusvälineet">
+                        <tavara>kasetti</tavara>
+						<tavara>kasetteja</tavara>
+                        <tavara>cd</tavara>
+                        <tavara>dvd</tavara>
+						<tavara>vhs</tavara>
+						<tavara>äänilevy</tavara>
+						<tavara>äänite</tavara>
+						<tavara>musiikkisatu</tavara>						
+                    </kategoria>
+                </kategoria>
+                <kategoria id="2" kuvaus="Muut kulttuuriin ja vapaa-aikaan liittyvät kestokulutustavarat">
+                    <kategoria id="1" kuvaus="Vapaa-aikaan liittyvät kestokulutustavarat sisäkäyttöön, mukaan lukien soittimet">
+                        <tavara>soitin</tavara>
+						<tavara>ksylofoni</tavara>
+                        <tavara>kitara</tavara>
+                        <tavara>huilu</tavara>
+                        <tavara>grilli</tavara>
+                    </kategoria>
+                </kategoria>
+                <kategoria id="3" kuvaus="Muut vapaa-aikaan liittyvät tarvikkeet ja laitteet, puutarhat ja lemmikkieläimet">
+                    <kategoria id="1" kuvaus="Pelit, lelut ja harrastusvälineet">
+                        <tavara>peli</tavara>
+                        <tavara>nukke</tavara>
+						<tavara>nukenvaate</tavara>
+						<tavara>nuken vaate</tavara>
+						<tavara>nuken vaatteita</tavara>
+						<tavara>nukenvaatteita</tavara>
+                        <tavara>pehmo</tavara>
+                        <tavara>nalle</tavara>
+                        <tavara>lelu</tavara>
+                        <tavara>autorata</tavara>
+                        <tavara>leikki</tavara>
+                        <tavara>barbi</tavara>
+						<tavara>dino</tavara>
+                        <tavara>trolli</tavara>
+                        <tavara>shrek</tavara>
+						<tavara>puujuna</tavara>
+                        <tavara>paavo pesusieni</tavara>                        
+                        <tavara>my little pony</tavara>
+						<tavara>traktori</tavara>
+						<tavara>kuorma-auto</tavara>
+						<tavara>rekka</tavara>
+						<tavara>ilmapallo</tavara>
+						<tavara>ratti ja polkimet</tavara>
+						<tavara>joulukalenteri</tavara>
+						<tavara>vene</tavara>
+						<tavara>hevonen</tavara>
+						<tavara>poni</tavara>
+						<tavara>miekka</tavara>
+						<tavara>hello kitty</tavara>
+						<tavara>spiderman-pehmo</tavara>
+                    </kategoria>
+                    <kategoria id="2" kuvaus="Urheilu- ja retkeilyvälineet">
+                        <tavara>makuupussi</tavara>
+                        <tavara>luistimet</tavara>
+                        <tavara>maila</tavara>
+                        <tavara>kypärä</tavara>
+                        <tavara>avokela</tavara>
+                        <tavara>kaviokoukku</tavara>
+                        <tavara>uimarengas</tavara>
+                        <tavara>sählypallo</tavara>
+                        <tavara>talutushihna</tavara>
+                        <tavara>askelmittari</tavara>                        
+                        <tavara>potkulaudat</tavara>
+                        <tavara>jäkiskassi</tavara>
+                        <tavara>rapumerta</tavara>
+						<tavara>kiekko</tavara>
+						<tavara>snorkkeli</tavara>
+						<tavara>räpylät</tavara>
+						<tavara>kuntoilulaite</tavara>
+						<tavara>pelastusliivit</tavara>
+						<tavara>monot</tavara>
+						<tavara>frisbee</tavara>
+						<tavara>keilapallo</tavara>
+						<tavara>rullaluistin</tavara>
+						<tavara>rullaluistimet</tavara>
+                    </kategoria>
+                    <kategoria id="3" kuvaus="Puutarhat, kasvit ja kukat">
+						<tavara>puutarhatonttu</tavara>
+						<tavara>ruukku</tavara>
+						<tavara>kukkapurkki</tavara>
+						<tavara>kukkapurkkeja</tavara>
+					</kategoria>
+                    <kategoria id="4" kuvaus="Lemmikkieläimet ja niihin liittyvät tuotteet">
+                        <tavara>kissan</tavara>
+                        <tavara>koiran</tavara>
+						<tavara>koiraverkko</tavara>
+                    </kategoria>
+                    <!--<kategoria id="5" kuvaus="Eläinlääkintäpalvelut ja muut lemmikkieläinpalvelut"></kategoria>-->
+                </kategoria>
+                <!--<kategoria id="4" kuvaus="Kulttuuri- ja vapaa-ajan palvelut"></kategoria>-->
+                <kategoria id="5" kuvaus="Sanomalehdet, kirjat ja paperitavarat">
+                    <kategoria id="1" kuvaus="Kirjat">
+                        <tavara>kirja</tavara>
+                        <tavara>neiti etsivä</tavara>
+                        <tavara>kirjoja</tavara>
+                        <tavara>aku ankka</tavara>
+                        <tavara>aku ankkoja</tavara>
+                        <tavara>akuankka</tavara>
+                        <tavara>akuankkoja</tavara>
+                        <tavara>pokkari</tavara>
+                        <tavara>pokkareita</tavara>
+                    </kategoria>
+                    <kategoria id="2" kuvaus="Sanoma- ja aikakauslehdet">
+                        <tavara>lehti</tavara>
+                        <tavara>lehdet</tavara>       
+                        <tavara>lehteä</tavara>       
+                    </kategoria>
+                    <kategoria id="3" kuvaus="Sekalaiset painotuotteet">
+                        <tavara>kortti</tavara>
+                        <tavara>kortit</tavara>
+                        <tavara>osoitekansio</tavara>
+                    </kategoria>
+                    <kategoria id="4" kuvaus="Paperitavarat ja piirustustarvikkeet">
+                        <tavara>tarra</tavara>
+                        <tavara>kynä</tavara>
+                        <tavara>viivotin</tavara>
+                        <tavara>pyyhekumi</tavara>
+                        <tavara>terotin</tavara>
+                        <tavara>vesiväri</tavara>
+                        <tavara>penaali</tavara>     
+                        <tavara>muste</tavara>
+                        <tavara>kirjepaperisetti</tavara>
+                        <tavara>vihko</tavara>
+						<tavara>tarroja</tavara>
+						<tavara>kansio</tavara>
+						<tavara>muistiinpano</tavara>
+                    </kategoria>
+                </kategoria>    
+            </kategoria>
+			<!--
+            <kategoria id="10" kuvaus="KOULUTUS"></kategoria>
+            <kategoria id="11" kuvaus="RAVINTOLAT JA HOTELLIT"></kategoria>
+			-->
+            <kategoria id="12" kuvaus="MUUT TAVARAT JA PALVELUT">
+                <kategoria id="1" kuvaus="Henkilökohtainen hygienia">
+                    <tavara>partakone</tavara>
+                    <tavara>parranajokone</tavara>
+                    <tavara>hammasharja</tavara>
+                    <tavara>wc-paperi</tavara>
+					<tavara>wc-tarvike</tavara>
+                    <tavara>vessapaperi</tavara>
+                    <tavara>vaippa</tavara>
+                    <tavara>nenäliina</tavara>   
+                    <tavara>hajuvesi</tavara>
+                    <tavara>nenäliina</tavara>
+					<tavara>kiharrin</tavara>
+					<tavara>hiuslenkkejä</tavara>
+					<tavara>hiustenkuivaaja</tavara>
+					<tavara>hiussolki</tavara>
+                </kategoria>
+                <kategoria id="2" kuvaus="Henkilökohtaiset esineet, muualla luokittelemattomat">
+                    <tavara>koru</tavara>
+					<tavara>panta</tavara>
+                    <tavara>helmet</tavara>
+                    <tavara>sormus</tavara>
+                    <tavara>korvikset</tavara>
+                    <tavara>käsirengas</tavara>
+                    <tavara>rannekello</tavara>            
+                    <tavara>henkilövaaka</tavara>
+					<tavara>pussukka</tavara>
+					<tavara>avaimenperä</tavara>
+					<tavara>pullonavain</tavara>
+					<tavara>puhelimen kuoret</tavara>
+					<tavara>sanko</tavara>
+					<tavara>rahapussi</tavara>
+					<tavara>salkku</tavara>
+					<tavara>kauppakassi</tavara>
+					<tavara>palkintopokaali</tavara>
+					<tavara>alkometri</tavara>
+					<tavara>säästöpossu</tavara>
+					<tavara>heijastin</tavara>
+					<tavara>taskulamppu</tavara>
+					<tavara>sateenvarjo</tavara>
+					<tavara>hiusjuttuja</tavara>
+					<kategoria id="1" kuvaus="Vauvanvarusteet">
+						<tavara>setteri</tavara>
+						<tavara>rattaat</tavara>
+						<tavara>vaunut</tavara>
+						<tavara>hyppykiikku</tavara>
+						<tavara>kylpytuki</tavara>
+						<tavara>istuinkoroke</tavara>
+						<tavara>tutti</tavara>
+						<tavara>lastenvaunu</tavara>
+						<tavara>lasten amme</tavara>
+						<tavara>helistin</tavara>
+					</kategoria>
+                </kategoria>
+            </kategoria>
+			<kategoria id="00" kuvaus="LUOKITTAMATTOMAT">
+				<tavara>*</tavara>
+			</kategoria>
+	</kategoria>
+</luokitus>

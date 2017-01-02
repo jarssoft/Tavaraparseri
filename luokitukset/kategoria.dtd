@@ -1,0 +1,39 @@
+<!-- Tavaraluokituksen kuvaamiseen ja tavaroiden koneelliseen tuonnistamiseen.
+
+XML-tiedoston voi tarkastaa Linuxissa esim. xmllint -ohjelmalla:
+xmllint -dtdvalid kategoria.dtd coicop.xml 
+
+XML-tiedosto on puu, jonka runko muodostuu kategoria-elementeistä, joka 
+muodostaa luokkahierarkian. Puun lehtinä on tavara-elementtejä, joiden sisällä 
+on merkkijono tavaran tunnistamiseen.
+
+Esimerkki XML-tiedostosta:
+
+<luokitus>
+    <kategoria id="5" kuvaus="Sanomalehdet, kirjat ja paperitavarat">
+        <kategoria id="1" kuvaus="Kirjat">
+            <tavara>kirja</tavara>
+            <tavara>neiti etsivä</tavara>
+            <tavara>pokkari</tavara>
+        </kategoria>
+    </kategoria>
+</luokitus>
+-->
+
+<!-- Juurielementti -->
+<!ELEMENT luokitus (kategoria+)>
+
+<!-- Kategoria on luokka. Se voi olla alaluokka tai yläluokka. -->
+<!ELEMENT kategoria (tavara*, kategoria*)>
+
+<!-- Kategorian attribuuttina on luokan nimi, joka ei saisi olla pidempi
+     kuin 80 merkkiä. Id on luokan numero tai muu tunniste. Yleensä 
+     luokituksissa käytetään tunnisteena numeroita ja pisteitä. -->
+<!ATTLIST kategoria id      CDATA    #IMPLIED
+                   kuvaus   CDATA    #IMPLIED>
+                   
+<!-- Tavara sisältää merkkijonon, jonka avulla tunnistetaan.
+     Merkkijonon tulee kirjoittaa pienillä kirjaimilla. -->
+<!ELEMENT tavara (#PCDATA)> 
+
+
