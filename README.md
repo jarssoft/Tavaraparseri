@@ -7,6 +7,7 @@ Data voidaan viedä taulukkolaskentaan tarkempaa tilastointia varten.
 
 Ensin tavaroista luodaan päivittäinen lista:
 
+<pre>
 13.6.
 pannu
 lautasia 5 kpl
@@ -18,6 +19,7 @@ lakana
 10 kirjaa
 setteri
 Rattaat
+</pre>
 
 Sitten lista luokitellaan luokitustiedoston mukaan. Paketissa löytyy luokitustiedosto coicop (käyttötarkoituksen mukaan),
 mutta käyttäjä voi tehdän oman luokituksen.
