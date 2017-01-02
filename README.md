@@ -1,9 +1,9 @@
 # Tavaraparseri
-Tavaravirtojen tilastointi kierrätyskeskukselle ym.
+Tavaravirran tilastointi pienessä kierrätyskeskuksessa
 
-Ohjelmalla voidaan luokitella päivittäisiä tavaraeriä hierarkisiin ryhmiin esim. niiden käyttötarkoituksen mukaan.  
-Ohjelma soveltuu kierrätyskeskukseen, kirpputorille, tai vaikkapa yksityishenkilön tarpeeseen.
-Data voidaan viedä taulukkolaskentaan tarkempaa tilastointia varten.
+Ohjelmalla voidaan luokitella päivittäistä tavaravirtaa hierarkisiin ryhmiin esim. käyttötarkoituksen mukaan.  
+Ohjelma soveltuu kierrätyskeskuksiin, kirpputoreille, tms. jossa tarvitaan pienimuotoista tavaraseurantaa.
+Data voidaan viedä taulukkolaskentaan mukautuvampaa tilastointia varten.
 
 Ensin tavaroista luodaan päivittäinen lista:
 
@@ -21,13 +21,11 @@ setteri
 Rattaat
 </pre>
 
-Sitten lista luokitellaan luokitustiedoston mukaan. Paketissa löytyy luokitustiedosto coicop (käyttötarkoituksen mukaan),
-mutta käyttäjä voi tehdän oman luokituksen.
+Ohjelma jäsentää tavarat, ja järjestää ne esim. viikottaiseen taulukkoon. Sitten lista luokitellaan luokitustiedoston mukaan. Paketissa löytyy luokitustiedosto coicop (käyttötarkoituksen mukaan), mutta käyttäjä voi tehdän oman luokituksen.
 
-Ohjelma tunnistaa tavarat hakusanojen mukaa, jonka jälkeen se ilmoittaa tunnistettujen määrän, listaa tunnistetut ja
-tunnistamattomat tavarat omina taulukoinaan.
+Ohjelma tunnistaa tavarat avainsanojen perusteella, jonka jälkeen se ilmoittaa tunnistettujen määrän, sekä listaa tunnistetut ja tunnistamattomat tavarat omina taulukoinaan.
 
-Tavaramäärät voi viedä taulukkolaskentaohjelmaan (Excel tai LibreOffice) HTML-muodossa.
+Tavaramäärät voi viedä kokonaisuudessaan taulukkolaskentaohjelmaan (Excel tai LibreOffice) seuraavanlaisena HTML-taulukkona.
 
 <table cellpadding="2" cellspacing="2">
 	<tr>
