@@ -1,0 +1,145 @@
+    
+      /* Lähteen tyyli */
+    
+      .pvm { /* Päivämäärät */
+        color: #008000;
+      }
+      .kpl { /* Kappalemäärät */
+        color: #000080;
+      }
+      u { /* Virheet */
+        background-color: #FFFFAA;
+      }
+      .virhe { /* Virheet */
+        color: #A00000;
+      }
+      
+      
+/**** MUOTOILEMATON TEKSTI ********************************/
+
+      .ln { /* Rivinumerot */
+        color: #888888
+        counter-increment: line;
+        content: counter(line);
+        display: inline-block;
+        border-right: 1px solid #ddd;
+        padding: 0 .5em;
+        margin-right: .5em;
+        color: #888;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      pre {
+        /*font-family: monospace;
+        background-color: #fff;
+        */
+        width: em(440);
+        margin: 2em auto;
+        
+        border-radius: .25em;
+        box-shadow: .1em .1em .5em rgba(0,0,0,.45);
+        padding: 0.5em;
+        /*
+        line-height: 0;
+        counter-reset: line;*/
+     }
+     
+/**** LOADER ********************************/
+     
+     #loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+
+        /* Add animation to "page content" */
+        .animate-bottom {
+        position: relative;
+        -webkit-animation-name: animatebottom;
+        -webkit-animation-duration: 1s;
+        animation-name: animatebottom;
+        animation-duration: 1s
+        }
+
+        @-webkit-keyframes animatebottom {
+        from { bottom:-100px; opacity:0 } 
+        to { bottom:0px; opacity:1 }
+        }
+
+        @keyframes animatebottom { 
+        from{ bottom:-100px; opacity:0 } 
+        to{ bottom:0; opacity:1 }
+        }
+
+        #myDiv {
+        display: none;
+        text-align: center;
+        }
+
+
+/**** TABIT ***********************************/
+
+    /* Style the list */
+    ul.tab {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+    /* Float the list items side by side */
+    ul.tab li {float: left;}
+
+    /* Style the links inside the list items */
+    ul.tab li a {
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+    /* Change background color of links on hover */
+    ul.tab li a:hover {background-color: #ddd;}
+
+    /* Create an active/current tablink class */
+    ul.tab li a:focus, .active {background-color: #ccc;}
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    } 
+
+/**** KOKONAISTAULUKKO **********************************/
