@@ -1,5 +1,5 @@
     
-/**** LAHDE ********************************/
+      /* Lähteen tyyli */
     
       .pvm { /* Päivämäärät */
         color: #008000;
@@ -7,7 +7,10 @@
       .kpl { /* Kappalemäärät */
         color: #000080;
       }
-      u { /* Virheet */
+      .fullmatch { /* Match */
+        background-color: #AAFFAA;
+      }
+	  .match { /* Match */
         background-color: #FFFFAA;
       }
       .virhe { /* Virheet */
@@ -141,3 +144,5 @@
         border: 1px solid #ccc;
         border-top: none;
     } 
+
+/**** KOKONAISTAULUKKO **********************************/

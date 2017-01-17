@@ -176,6 +176,9 @@
     function orginal(text) {
     
         var html="";
+        pvmpienin=null;
+        pvmsuurin=null;
+        paivienmaara=0;
         
         if(text!=""){
     
@@ -261,7 +264,7 @@
 	    return new Date(d.setDate(diff));
 	}
 
-    function textToRichHTML(text) {
+    function muotoiltuLista(text) {
 
         if (kasikirjoitus=="")
             return "Lataa ensin kirjaustiedosto";
@@ -275,7 +278,13 @@
         var entviikpaiv=1;
 		var paivays=null;
         
-        html=html+"<h2>Päivittäinen taulukko</h2><table border=\"1\"><tr><th>Vko</th><td>Maanantai</td><td>Tiistai</td><td>Keskiviikko</td><td>Torstai</td><td>Perjantai</td><td>Lauantai</td><td>Sunnuntai";
+        html=html+"<h2>Tavarakalenteri</h2><table id=\"kalenteri\" border=\"1\"><tr><th>Vko</th><td>Maanantai</td><td>Tiistai</td><td>Keskiviikko</td><td>Torstai</td><td>Perjantai"
+        //if(document.getElementById('viikonpaivat').value == 1)
+        
+        //var valittu = document.querySelector('input[name="viikonpaivat"]:checked').value;
+        
+        if(document.getElementById('kaikkipaivat').checked)
+            html=html+"</td><td>Lauantai</td><td>Sunnuntai";
         
 		var monthNames = [
 		  "tammi", "helmi", "maalis",
@@ -871,20 +880,27 @@
     function vie(text) {
 
         if(juuriluokka==null)
-                return "Lataa ensin luokitustiedosto";
+            return "Lataa ensin luokitustiedosto";
 				
 		if(laske==true)
-                return "Tunnista tavarat ensin valitsemalla tunnistus-välilehti!";
+            return "Tunnista tavarat ensin valitsemalla tunnistus-välilehti!";
 
         var taul="<h3>Vienti muuhun ohjelmaan</h3><p>Taulukon voi kopioida ja liittää taulukkolaskentaohjelmaan, jossa voi tehdä tilastointia.</p>";
-        taul=taul+"<input type=\"button\" value=\"Valitse koko taulukko\" onclick=\"selectElementContents( document.getElementById('table') );\">";
         taul=taul+"<table id=\"table\" border=\"0\">";
         
         //for(i=0;i<syvintaso;i++){
-            taul=taul+"<tr><th></th>"+tulostakategorianimetyhdelleriville(juuriluokka, i, i)+"</tr>";
+            taul=taul+"<tr><th></th>"+tulostakategorianimetyhdelleriville(juuriluokka, 0, 0)+"</tr>";
         //}
-        for(i=0;i<days.length;i++)
-            taul=taul+"<tr><th>"+toISODateString(days[i])+"</th>"+tulostakategoria(juuriluokka, toISODateString(days[i]), 0)+"</tr>";
+        
+        if(document.getElementById('tavarapaivat').checked){
+            for(var i=0;i<days.length;i++)
+                taul=taul+"<tr><th>"+toISODateString(days[i])+"</th>"+tulostakategoria(juuriluokka, toISODateString(days[i]), 0)+"</tr>";
+        }else{  
+            var i = new Date(days[0].getTime());
+            for(;i<days[days.length-1];i.setDate(i.getDate() + 1)){
+                taul=taul+"<tr><th>"+toISODateString(i)+"</th>"+tulostakategoria(juuriluokka, toISODateString(i), 0)+"</tr>";
+            }
+        }
         
         taul=taul+"</table>";
         return taul;
@@ -1081,19 +1097,21 @@
 
         <ul class="tab">
             <li><a href="javascript:void(0)" class="tablinks" onclick="openCity('Kasikirjoitus');displayContents(orginal(kasikirjoitus));">Käsikirjoitus</a></li>
-            <li><a href="javascript:void(0)" class="tablinks" onclick="displayContents(textToRichHTML(kasikirjoitus));openCity('Muotoilu');">Muotoiltu lista</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" onclick="displayContents(muotoiltuLista(kasikirjoitus));openCity('Muotoilu');">Kalenteri</a></li>
             <li><a href="javascript:void(0)" class="tablinks" onclick="openCity('Luokitus');displayContents(loadLuokitus());">Luokitus</a></li>            
             <li><a href="javascript:void(0)" class="tablinks" onclick="openCity('Tunnistus');textToHTMLTableSpinner();">Tunnistus</a></li>            
-            <!--
-			<li><a href="javascript:void(0)" class="tablinks" onclick="openCity('Hierarkia');displayContents(textToHTMLTree(kasikirjoitus));">Hierarkia</a></li>
-            <li><a href="javascript:void(0)" class="tablinks" onclick="openCity('Luokat');displayContents(kategoriatJaSanat(kasikirjoitus));">Luokat</a></li>            
-            -->
 			<li><a href="javascript:void(0)" class="tablinks" onclick="openCity('Vie');displayContents(vie());">Vie taulukkolaskentaohjelmaan</a></li>
         </ul>
 
         <div id="Kasikirjoitus" class="tabcontent">
         </div>
         <div id="Muotoilu" class="tabcontent">
+            <div name="viikonpaivat">
+                <input type="radio" id="arkipaivat"   name="viikonpaivat" value="arkipaivat"> Näytä arkipäivät ma-pe<br>
+                <input type="radio" id="kaikkipaivat" name="viikonpaivat" value="kaikkipaivat"> Näytä kaikki viikonpäivät<br>
+                <INPUT TYPE="button" NAME="button" Value="Päivitä" onClick="displayContents(muotoiltuLista(kasikirjoitus));">
+                <input type="button" value="Valitse koko taulukko" onclick="selectElementContents( document.getElementById('kalenteri') );">
+            </div>
         </div>
         <div id="Luokitus" class="tabcontent">
         </div>
@@ -1106,14 +1124,12 @@
         </div>
 		
         <div id="Vie" class="tabcontent">
-        <!--
-	     <h3>Tilasto</h3>
-	     <p>Valitse käsikirjoitustiedostot, joista tilasto muodostetaan.</p>
-	     <form action='save.php' method='post' enctype='multipart/form-data'> 
-		<input name="uploads[]" type="file" multiple="multiple"  onchange="readText(this, kkmultiloaded);"/> 
-		<input type='submit' value="Upload File"> 
-	     </form>
-	     -->
+            <div name="vie">
+                <input type="radio" id="tavarapaivat"   name="vie" value="tavarapaivat" checked> Vain päivät joille merkitty tavaroita  <br>
+                <input type="radio" id="valipaivat" name="vie" value="valipaivat">   Myös välipäivät                        <br>
+                <INPUT TYPE="button" NAME="button" Value="Päivitä" onClick="openCity('Vie');displayContents(vie());">
+                <input type="button" value="Valitse koko taulukko" onclick="selectElementContents( document.getElementById('table') );">
+            </div>
         </div>
         
         <div id="main">
