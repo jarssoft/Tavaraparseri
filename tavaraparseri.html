@@ -250,7 +250,7 @@
                 html="<p><span class=\"virhe\">Tiedostossa on "+virhecount.toString()+" virhettä. <a href=\"#ekavirhe\">Siirry ensimmäiseen virheeseen.</a></span></p>"+html;
             
         }else{
-            html="<p>Lataa tekstitiedosto, jossa kirjaamiset.</p>Kirjaus:  <input type=\"file\" onchange=\"readText(this, kkloaded);\" />";
+            html="<p>Lataa tekstitiedosto, jossa lista tavaroista.</p>Tavaralista:  <input type=\"file\" onchange=\"readText(this, kkloaded);\" />";
         }
 	
 
@@ -267,7 +267,7 @@
     function muotoiltuLista(text) {
 
         if (kasikirjoitus=="")
-            return "Lataa ensin kirjaustiedosto";
+            return "<span class=\"virhe\">Lataa ensin tavaralista</span>";
         
         
         var rivit=text.split("\n");
@@ -654,7 +654,7 @@
     function loadLuokitus(){
     
         if(xmlDoc==null)
-            return "<p>Lataa ensin XML-muotoinen luokitustiedosto.</p> <input type=\"file\" onchange=\"readText(this, xmlloaded);\" />";
+            return "<p>Lataa XML-muotoisen luokitustiedoston.</p> <input type=\"file\" onchange=\"readText(this, xmlloaded);\" />";
 
 		if(xmlDoc.getElementsByTagName("kuvaus").length==0)
 			return "<h2>Virheellinen luokitustiedosto</h2><p>Tiedostossa ei ole kuvaus-elementtiä.</p> <input type=\"file\" onchange=\"readText(this, xmlloaded);\" />";
@@ -673,15 +673,15 @@
 		
         if (kasikirjoitus=="")
 			if(xmlDoc==null)
-				return "Lataa kirjaustiedosto ja luokitustiedosto!";
+				return "<span class=\"virhe\">Lataa tavaralista ja luokitustiedosto!</span>";
 			else
-				return "Lataa kirjaustiedost!";
+				return "<span class=\"virhe\">Lataa tavaralista!</span>";
 
 		if(xmlDoc==null)
-			return "Lataa luokitustiedosto!";
+			return "<span class=\"virhe\">Lataa luokitustiedosto!</span>";
 			
 		if(laske==false)
-			return "Tavarat on jo tunnistettu. Lataa luokitus uudelleen tehdäksesi uuden tunnistuksen.";
+			return "<span class=\"virhe\">Tavarat on jo tunnistettu. Lataa luokitus uudelleen tehdäksesi uuden tunnistuksen.</span>";
 
 
         //var parentDiv = document.getElementById('SomeDiv');
@@ -847,7 +847,7 @@
 
     function textToHTMLTree(text) {
         if(juuriluokka==null)
-		return "Lataa ensin luokitustiedosto";
+		return "<span class=\"virhe\">Lataa ensin luokitustiedosto</span>";
 
         puu="<h3>Luokitus</h3><p>Tavaroiden määrät eri luokissa. Kirjauksissa ilmoitetut kappalemäärät on huomioitu.</p>";
         tulostakategoria(juuriluokka);
@@ -863,7 +863,7 @@
         parentDiv.appendChild(xmlTextNode);
 
         if(juuriluokka==null)
-            return "Lataa ensin luokitustiedosto";
+            return "<span class=\"virhe\">Lataa ensin luokitustiedosto</span>";
 
         lista="<h3>Vertailu</h3><p>Tavaroiden määrä tietyssä kategoriassa ajan mukaan, sekä vertailu toiseen kategoriaan.</p>";
         lista=lista+"<select>";
@@ -880,7 +880,7 @@
     function vie(text) {
 
         if(juuriluokka==null)
-            return "Lataa ensin luokitustiedosto";
+            return "<span class=\"virhe\">Lataa ensin luokitustiedosto</span>";
 				
 		if(laske==true)
             return "Tunnista tavarat ensin valitsemalla tunnistus-välilehti!";
@@ -1088,7 +1088,7 @@
 <body onload="checkFileAPI();openCity('Kasikirjoitus');displayContents(orginal(kasikirjoitus));">
     <div id="container">
 
-        Kirjaus:  <input type="file" onchange="readText(this, kkloaded);" />
+        Tavaralista:  <input type="file" onchange="readText(this, kkloaded);" />
         Luokitus: <input type="file" onchange="readText(this, xmlloaded);" />
  
         <!--<input type="file" onchange='readText("./vihot/mustaharmaavihko.txt");' />-->
@@ -1096,11 +1096,12 @@
         <hr/>   
 
         <ul class="tab">
-            <li><a href="javascript:void(0)" class="tablinks" onclick="openCity('Kasikirjoitus');displayContents(orginal(kasikirjoitus));">Käsikirjoitus</a></li>
-            <li><a href="javascript:void(0)" class="tablinks" onclick="displayContents(muotoiltuLista(kasikirjoitus));openCity('Muotoilu');">Kalenteri</a></li>
-            <li><a href="javascript:void(0)" class="tablinks" onclick="openCity('Luokitus');displayContents(loadLuokitus());">Luokitus</a></li>            
-            <li><a href="javascript:void(0)" class="tablinks" onclick="openCity('Tunnistus');textToHTMLTableSpinner();">Tunnistus</a></li>            
-			<li><a href="javascript:void(0)" class="tablinks" onclick="openCity('Vie');displayContents(vie());">Vie taulukkolaskentaohjelmaan</a></li>
+            <li><a title="Lataa tavaralista tekstimuodossa." href="javascript:void(0)" class="tablinks" onclick="openCity('Kasikirjoitus');displayContents(orginal(kasikirjoitus));">Tavaralista</a></li>
+            <li><a title="Näytä tavaravirta kalenterinäkymässä." href="javascript:void(0)" class="tablinks" onclick="displayContents(muotoiltuLista(kasikirjoitus));openCity('Muotoilu');">Kalenteri</a></li>
+            <li><a title="Lataa tavaraluokitus."             href="javascript:void(0)" class="tablinks" onclick="openCity('Luokitus');displayContents(loadLuokitus());">Luokitus</a></li>            
+            <li><a title="Tunnista tavarat luokituksen perusteella." href="javascript:void(0)" class="tablinks" onclick="openCity('Tunnistus');textToHTMLTableSpinner();">Tunnistus</a></li>            
+			<li><a title="Näytä kokonaistaulukko, jonka voi viedä taulukkolaskentaohjelmaan." href="javascript:void(0)" class="tablinks" onclick="openCity('Vie');displayContents(vie());">Vie taulukkolaskentaohjelmaan</a></li>
+			<li><a title="Ohjeita ohjelman käyttämiseen." href="javascript:void(0)" class="tablinks" onclick="openCity('Ohjeet');displayContents('');">Ohjeet</a></li>			
         </ul>
 
         <div id="Kasikirjoitus" class="tabcontent">
@@ -1132,10 +1133,122 @@
             </div>
         </div>
         
+        <div id="Ohjeet" class="tabcontent">
+        
+        <h1>Tavaraparseri - ohjelma tavaravirran jäsentämiseen</h1>
+        
+        <b><p>Ohjelmalla hallitaan päivittäistä tavaravirtaa. Tekstitiedostossa luetellut tiedot järjestetään taulukoihin. Tavarat voidaan järjestää hierarkisiin ryhmiin esim. käyttötarkoituksen mukaan. Ohjelma soveltuu kierrätyskeskuksiin, kirpputoreille, tms. jossa tarvitaan pienimuotoista tavaraseurantaa. Data voidaan viedä taulukkolaskentaan mukautuvampaa tilastointia varten.</p></b>
+
+        <h2>Tavaralista</h2>
+            
+        Tavaravirtaa kirjoitetaan tekstitiedostoon rivi riviltä. Kirjaukset tulisi jakaa tiedostoihin jollain mielekkäällä jaolla.
+        Tiedoston muokkaamisesta on enemmän liitteessä Tekstitiedostojen muokkaminen.
+        
+        <pre>
+#Mustaharmaavihko
+#13.6.2016-19.8.2016
+#86 sivua tavaroita
+#------------------------------------------ sivu 1
+13.6.
+pannu
+lautasia 5 kpl
+lusikka
+lakana
+2tyynynpäällistä
+
+14.6.
+10 kirjaa
+setteri
+Rattaat
+#------------------------------------------- sivu 2
+lasipurkkeja 6 kpl.
+polkupyörä
+istuin koroke
+        </pre>
+        
+        <p>(Hakemistossa <i>esimerkit/</i> on lisää esimerkkejä tavaralistoista.)</p>
+
+        <h3>Kommentit</h3>
+        
+        <p>
+            Tiedostoon kannattaa lisätä ns. kommentteja. Ne jäsentävät käsikirjoitusta, vaikkakaan niillä ei ole vaikutusta tietoa käsittelevälle ohjelmalle. Kommentit aloitetaan aina risuaidalla (#), jotta kone osaa jättää ne huomioimatta.
+            Sivun vaihtuminen voidaan merkitä esim. #-------. Loppuun kannattaa lisätä sivunumero.
+            Kommentit voi värjätä Notepad++ -ohjelmalla esimerkin tavoin, kun valitsee Language -> INI file.
+        </p>
+
+
+        <h3>Päivämäärät</h3>
+        
+        <p>
+            Tässä on kuvattu muoto, jossa Tavaraparseri-ohjelma olettaa kirjausten olevan.
+            Tavaralistaus alkaa päivämäärämerkinnästä. Ensimmäisessä päivämäärässä tulee olla vuosiluku. Päivämäärät voivat olla jossain seuraavissa eri muodoissa:
+        
+            <ul>
+            <li>3.11.2016</li>
+            <li>3.11.-16</li>
+            <li>3.11.</li>
+            <li>3.11</li>
+            </ul>
+        </p>
+        
+        <h3>Tavarat</h3>
+        
+        <p>
+            Päivämäärän alta, tai joskus jo samalta riviltä, alkaa lista kyseisenä päivänä kirjatuista tavaroista. Tavarat voidaan jakaa rivinvaihdoilla tai pilkuilla. Tavaroiden määrät voivat olla seuraavissa muodoissa:
+            <ul>
+            <li>3 kpl lautasia</li>
+            <li>lautasia 3 kpl</li>
+            <li>3x lautanen</li>
+            <li>3 x lautanen</li>
+            <li>lautanen x3</li>
+            <li>lautanen x 3</li>
+            <li>3 lautasta</li>
+            <li>lautaset 3</li>
+            </ul>
+        </p>
+       
+        <h2>Luokitus</h2>
+        
+        <h3>Luokituksen käyttö ohjelmassa</h3>
+        
+        <p>
+            Luokitus avataan ohjelmaan sivun oikeasta ylälaidasta otsikon luokitus -alta. Luokituksen avattua ohjelma näyttää siitä perustietoja.
+            Muista ladata myös tavaralista aiemmin kuvatun ohjeen mukaisesti.                         
+        </p>
+        
+        <p>(Valmiita luokituksia löytyy <i>luokitukset/</i> -hakemistosta.)</p>
+        
+        <h3>Luokituksen muokkaaminen</h3>
+        
+        <p>
+            Käyttäjä voi luoda uuden luokituksen tai parantaa tunnistamista. Tiedoston muokkaamisessa olisi hyvä olla kokemusta XML-tiedostoista. Toisaalta valmiita luokituksia voi käyttää esimerkkinä. Ohjelmana voi käyttää esim. Notepad++:aa.
+            Voit luoda hakemistoon Tiedostot\Lähtevät tavarat\kategoriat omia luokitustiedostoja, tai parannella vanhoja. Hakemistossa on määrittelytiedosto kategoria.dtd, jonka avulla voi tarkastaa XML-tiedoston oikeellisuuden. Määrittelyssä on myös ohjeita XML-tiedoston kirjoittamiseen.
+        </p>
+
+        <h2>Tunnistus</h2>
+        
+        <p>
+            Kun molemmat tiedostot on ladattu, valitse välilehti nimeltä Tunnistus. Ohjelma käynnistää automaattisen luokituksen, joka voi kestää muutaman sekunnin. Sen jälkeen ohjelma ilmoittaa tunnistuksen tilan, esimerkiksi:
+            Kirjauksista löydettiin 1079 erinimistä tavaraa, joista tunnistettu 697 (64.6%).
+        </p>
+
+       <h2>Kokonaistaulukko</h2>
+       <p>
+            Kokonaistaulukko-välilehdestä näet tavaroiden määrän eri luokissa (sarakkeet) ja eri päivinä (rivit).
+            Taulukon voi viedä taulukkolaskentaohjelmaan.
+       </p>
+
+        </div>
+        
         <div id="main">
             ...        
         </div>
+        
 
+    </div>
+    <hr>
+    <div align="right">
+    Tavaraparseri - ohjelma tavaravirran jäsentämiseen - <a href="http://github.com/jarssoft/Tavaraparseri">http://github.com/jarssoft/Tavaraparseri</a>
     </div>
 </body>
 </html> 
