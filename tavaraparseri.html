@@ -16,7 +16,6 @@
     var xmlfile = "";
     var kasikirjoitus = "";
     var days = [];
-
     var laske = true;
     /**
      * Check for the various File API support.
@@ -139,29 +138,29 @@
                 var year=date.getFullYear().toString();
                 
         var newdate = new Date(year+"-"+month+"-"+day);
-        
+        //alert(year+"-"+month+"-"+day);
         pvmvirhe="";    
         var today = new Date();
 
         if(newdate > today)
             pvmvirhe = "Päivämäärä on tulevaisuudessa!";
         
-	//onko yksikään päivämäärä merkitty
+	    //onko yksikään päivämäärä merkitty
         if(pvmsuurin==null){
             pvmpienin=newdate;
-	    pvmsuurin=newdate;
-	    paivienmaara++;
-	}else{
-	    //jos eri kuin aiempi
-            if(newdate < pvmpienin){
-                pvmvirhe = "Päivämäärän väärässä järjestyksessä!";
-		pvmpienin = newdate;
-	    }
-	    if(newdate > pvmsuurin){
-		pvmsuurin = newdate;
-		paivienmaara++;
-	    }
-	}
+			pvmsuurin=newdate;
+			paivienmaara++;
+		}else{
+			//jos eri kuin aiempi
+			if(newdate < pvmpienin){
+				pvmvirhe = "Päivämäärän väärässä järjestyksessä!";
+				pvmpienin = newdate;
+			}
+			if(newdate > pvmsuurin){
+				pvmsuurin = newdate;
+				paivienmaara++;
+			}
+		}
 
         return newdate;
     
@@ -255,6 +254,13 @@
         return html+"</pre>";
     }
     
+	function getMonday(d) {
+	    d = new Date(d);
+	    var day = d.getDay(),
+		    diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+	    return new Date(d.setDate(diff));
+	}
+
     function textToRichHTML(text) {
 
         if (kasikirjoitus=="")
@@ -265,11 +271,19 @@
         var html="";
         var arrayLength = rivit.length;
         var taso=0;
-        var entviik=0;
+        var entviik=-1;
         var entviikpaiv=1;
+		var paivays=null;
         
-        html=html+"<h2>Päivittäinen taulukko</h2><table border=\"1\"><tr><th>Vko</th><td>Maanantai</td><td>Tiistai</td><td>Keskiviikko</td><td>Torstai</td><td>Perjantai";
+        html=html+"<h2>Päivittäinen taulukko</h2><table border=\"1\"><tr><th>Vko</th><td>Maanantai</td><td>Tiistai</td><td>Keskiviikko</td><td>Torstai</td><td>Perjantai</td><td>Lauantai</td><td>Sunnuntai";
         
+		var monthNames = [
+		  "tammi", "helmi", "maalis",
+		  "huhti", "touko", "kesä", "heinä",
+		  "elo", "syys", "loka",
+		  "marras", "joulu"
+		];
+
         for (var i = 0; i < arrayLength; i++) {
             rivi=rivit[i];
             if(rivi[0]!='#'){
@@ -288,14 +302,22 @@
                         taso=taso-1;
                     }
 
-                    //lisätään viikko
                     var capture = pattpvm1.exec(rivi);
-                            var paivays = dateCapture(capture, new Date());  
+					if(pattpvm2.test(rivi))
+						capture = pattpvm2.exec(rivi);
+                    var paivays = dateCapture(capture, paivays);
+					
+					//lisätään viikko
                     var viikko=paivays.getWeek();
                     if(viikko!=entviik){
+						
                         //html=html+"<h2>Viikko "+viikko.toString()+"</h2>";
                         //html=html+"<h3>"+dayNames[1]+"</h3>";
-                        html=html+"</td></tr><tr><th valign=\"top\">"+viikko.toString()+"</th><td valign=\"top\">"; //uusi rivi taulukossa
+						var monday = getMonday(paivays);
+						var mondaytxt=monday.getDate().toString()+". "+monthNames[monday.getMonth()];
+						monday.setDate(monday.getDate() + 5); 
+						var fridaytxt=monday.getDate().toString()+". "+monthNames[monday.getMonth()];
+                        html=html+"</td></tr><tr><th valign=\"top\">"+viikko.toString()+"<br>("+mondaytxt+"-<br>"+fridaytxt+")</th><td valign=\"top\">"; //uusi rivi taulukossa
                         entviik=viikko;
                         entviikpaiv=1;
                     }
@@ -304,6 +326,8 @@
                             
                     //jos uusi viikonpäivä, vaihdetaan saraketta
                     var vp = paivays.getDay();
+					if(vp>5)
+						alert("virhe viikonpäivissä, päivä ei saa olla "+(vp).toString());
                     if(vp!=entviikpaiv){
                         for (; vp > entviikpaiv; entviikpaiv++) {
                             //html=html+"<h3>"+dayNames[entviikpaiv+1]+"</h3>";
@@ -646,6 +670,9 @@
 
 		if(xmlDoc==null)
 			return "Lataa luokitustiedosto!";
+			
+		if(laske==false)
+			return "Tavarat on jo tunnistettu. Lataa luokitus uudelleen tehdäksesi uuden tunnistuksen.";
 
 
         //var parentDiv = document.getElementById('SomeDiv');
@@ -765,7 +792,11 @@
                         }else{
                             //luokka=luokka.childNodes[0].nodeValue;
 							//luokka=luokka.parentElement;
-                            tavara=tavara.replace(luokka.childNodes[0].nodeValue, '<u>$&</u>')
+							var style="match";
+							//alert(tavara+"=="+luokka.childNodes[0].nodeValue);
+							if(tavara.length == luokka.childNodes[0].nodeValue.length)
+								style="fullmatch";
+                            tavara=tavara.replace(luokka.childNodes[0].nodeValue, '<u><span class=\"'+style+'\">$&</span></u>')
                             luokka=luokka.parentNode.getAttribute("kuvaus");
                             luokitellut++;
                             html_luok=html_luok+"<tr><td>"+tavara+"</td><td>"+luokka+"</td></tr>";
@@ -841,6 +872,9 @@
 
         if(juuriluokka==null)
                 return "Lataa ensin luokitustiedosto";
+				
+		if(laske==true)
+                return "Tunnista tavarat ensin valitsemalla tunnistus-välilehti!";
 
         var taul="<h3>Vienti muuhun ohjelmaan</h3><p>Taulukon voi kopioida ja liittää taulukkolaskentaohjelmaan, jossa voi tehdä tilastointia.</p>";
         taul=taul+"<input type=\"button\" value=\"Valitse koko taulukko\" onclick=\"selectElementContents( document.getElementById('table') );\">";
@@ -934,6 +968,8 @@
 	//alert(content);
 
     	xmlDoc = parser.parseFromString(content,"text/xml");
+		laske=true;
+		days = [];
 	//if(isParseError(xmlDoc)) 
 	//    alert ("XML ei ole kelvollista. Korjaa XML-tiedosto.");
 
