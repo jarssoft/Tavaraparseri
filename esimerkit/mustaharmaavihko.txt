@@ -1854,12 +1854,240 @@ sirottimet
 laukku
 
 
+1.8
+barbi
+muki
+kirja, cd ja hedelmäkori
+kukkapurkki
+kasetti, kuuntelukirja
+leluponi
+rakennussarja
+pikku kippo
+
+#----------------------------------------
 
 
+pikkuponi
+hiekkalelu
+muovikassi
 
+muovikippa
+ritsa
+kirja
+pannualunen
+kolme kuvahyllyä
+jälkiruokamalja
+lastenpeitto
+kalevakirja
+2 kappaa
+maissipiikit
+tinapilli
+laatikko
+7 kirjaa
+4 kangasta
+kynttiläjalka
+silitysrauta
 
+kodin astioita 5x
+kattila
+kulho
+ruukkua
+delfiini
+käsikorut
+4 lastenleluja
 
+2x säilytysrasia
+hyppynaru
+kenkätalo
+koulutusnamit
 
+kirjoja
+hylly
+lamppu
+
+2 hevospiirrosta
+kaulakoru
+#------------------------------------------------------------
+lasimalja
+lasipurkki
+kynttilälyhty
+koritepelle
+
+1.8.2016
+
+dvd x 6
+ruusu valoilla
+kukkaro
+
+dvd x 12
+tuulilyhty
+kengännauhat
+2x virkkausohjeet
+puukauha
+kissaharja
+kissakippo
+
+8 dvd leffaa
+2 cd levyä
+2 kahvikuppia
+4 pehmolelua
+1 hiirimatto
+paljon akuankka lehtiä
+4 puuhetta
+2 pussilakana
+ suoristusrauta
+ #------------------------------------------------
+ 2.8
+ rullaluistimet
+ 2 lelua
+ valokuvakehys
+ jakkara
+ kissanvessa
+ 
+pöytäliina
+2x tyyny
+johtopidike
+2 pokkaria
+värikynät
+kangas
+3x koriste-esine
+2x parvekelaatikko
+vispilä
+kestosuodatin
+uunivuoka x2
+pinnasängyn verhoteline
+2 kirjaa
+4 vauvankirjan
+pöytäliina
+muki
+2 korttia
+heijastin
+pokaali
+piirros
+lasinen kansi + grillimat
+juustomuotti
+servetti jalusta
+pöytälamppu
+sauna teline
+sininen pyörät olla teline
+piltti peltirasia muumi
+2 kpl silmälaseja
+venehankaimet
+
+aku ankat
+pinnasängyn
+ammetuki vauvalle
+essu
+#----------------------------------------------------- s. 53
+2.8
+
+taulu
+kankaita
+kirja
+paplarit
+2x k****
+2x taskukirja
+2x kukkapurkki
+vitsikirja
+kalenteri
+lastenpeliä
+rullaluistimet
+koristekulho
+lasimaljakko
+pieni hedelmäkori
+7 kpl englant. posliinilautasia
+posliinikulho
+lasilautanen
+maalivahdin hanskat
+stetoskooppi
+vesipyssy
+jalkakylpy
+kylmäkassi
+vuoka
+hiuskuivain
+kulho
+pussilakana
+3x nukke
+korvakorut
+teline
+kello
+2 vuotinen kynttilä
+kori
+2 mukia
+lelulautaset
+pik******
+2x riipu***
+
+maljakko
+lasikuppi
+nakke nakuttaja
+#---
+lautapeli
+akutaulu
+2 kuppi
+lelut
+ lelu
+ aurinkolasit
+ 3 verhoa
+ 2 tyynyliina
+ 1 maljakkko
+ kello
+ 4 lastenkirja
+ melita kahvinkeitin
+ tuttu juttu peli
+ 2 roopesetä kirjaa
+ joululiina
+ radiomankka
+ kasetti
+ silmälasit
+ laukku
+ pehmolelu
+ penaali
+ palapeli
+ #------------------------------------------------------------ 55
+ 3.8 kirja
+ lelujaverhot
+ koristeita
+ 
+ kori
+ tyynyliina
+ 
+ 2 kirjaa
+ 2 pikaria
+ 1 lasipullo
+ 1 lasipurkki
+ 
+ 3.8 pöytäliina
+ kangas
+ lamppu
+ cd
+ linko
+ vaasi
+ petauspatja
+ 4 pyyhettä
+ enkeli
+ juomalasit
+ lakana
+ 7 verhoparia
+ matto
+ juomapullo
+ kangaspala
+ kitarat
+ autopelin ratti
+ polkimet
+ sohva
+ tv-taso
+ 
+ leluja
+ sakset
+ 
+ kukkapurkki
+ 
+ #---------------------------------------------
+ 3.8 
+ 7 kpl lastenleluja
+ vauvan makuupussi
+#------------------------------------------------------
 
 
 

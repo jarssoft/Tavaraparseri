@@ -1,4 +1,8 @@
     
+	body {
+		font-family: Verdana, Geneva, sans-serif;
+	}
+
       /* Lähteen tyyli */
     
       .pvm { /* Päivämäärät */
@@ -114,7 +118,7 @@
         padding: 0;
         overflow: hidden;
         border: 1px solid #ccc;
-        background-color: #f1f1f1;
+        background-color: #f1f1f1; 
     }
 
     /* Float the list items side by side */
@@ -135,7 +139,7 @@
     ul.tab li a:hover {background-color: #ddd;}
 
     /* Create an active/current tablink class */
-    ul.tab li a:focus, .active {background-color: #ccc;}
+    ul.tab li a:focus, .active {background-color: #ccc; font-weight: bold;}
 
     /* Style the tab content */
     .tabcontent {

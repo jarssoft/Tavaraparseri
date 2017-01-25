@@ -21,10 +21,13 @@ Esimerkki XML-tiedostosta:
 -->
 
 <!-- Juurielementti -->
-<!ELEMENT luokitus (kategoria+)>
+<!ELEMENT luokitus (kuvaus, kategoria+)>
 
 <!-- Kategoria on luokka. Se voi olla alaluokka tai yläluokka. -->
 <!ELEMENT kategoria (tavara*, kategoria*)>
+
+<!-- Kuvaus luokittelusta. Voi sisältää HTML-elementtejä -->
+<!ELEMENT kuvaus (#PCDATA)>
 
 <!-- Kategorian attribuuttina on luokan nimi, joka ei saisi olla pidempi
      kuin 80 merkkiä. Id on luokan numero tai muu tunniste. Yleensä 
@@ -36,4 +39,8 @@ Esimerkki XML-tiedostosta:
      Merkkijonon tulee kirjoittaa pienillä kirjaimilla. -->
 <!ELEMENT tavara (#PCDATA)> 
 
-
+<!-- tunnistus on tunnistustyyppi. Vaihtoehdot
+        sisältää == tavaran pitää sisältää merkkijono
+        kokosana == tavaran pitää olla täsmälleen sama kuin merkkijono
+-->
+<!ATTLIST tavara tunnistus CDATA    #IMPLIED>

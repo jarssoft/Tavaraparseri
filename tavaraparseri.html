@@ -406,12 +406,26 @@
                     continue;						
                 }
                 if(lapset[i].nodeName == 'tavara'){
+				
                     var muoto=lapset[i].childNodes[0].nodeValue;
-                    if (tavara.indexOf(muoto)>-1 || muoto=="*"){
-                        //return lapset[i]; 
-                        loytynyt=lapset[i];
-                        continue;
-                    }
+					var tunnistus="normaali";
+					if(lapset[i].hasAttribute("tunnistus")){
+						tunnistus = lapset[i].getAttribute("tunnistus");
+					}
+					
+					if(tunnistus=="normaali"){
+						if (tavara.indexOf(muoto)>-1 || muoto=="*"){
+							//return lapset[i]; 
+							loytynyt=lapset[i];
+							continue;
+						}
+					}
+					if(tunnistus=="kokosana"){
+						if (tavara==muoto){
+							loytynyt=lapset[i];
+							continue;
+						}
+					}
 					//if(lapset[i].getAttribute("kuvaus")=="luokittamaton")
 					//	loytynyt=lapset[i];
 					//	continue;
@@ -1219,6 +1233,18 @@ istuin koroke
         <p>(Valmiita luokituksia löytyy <i>luokitukset/</i> -hakemistosta.)</p>
         
         <h3>Luokituksen muokkaaminen</h3>
+        
+        <pre>
+&lt;luokitus&gt;
+    &lt;kategoria id=&quot;5&quot; kuvaus=&quot;Sanomalehdet, kirjat ja paperitavarat&quot;&gt;
+        &lt;kategoria id=&quot;1&quot; kuvaus=&quot;Kirjat&quot;&gt;
+            &lt;tavara&gt;kirja&lt;/tavara&gt;
+            &lt;tavara&gt;neiti etsivä&lt;/tavara&gt;
+            &lt;tavara&gt;pokkari&lt;/tavara&gt;
+        &lt;/kategoria&gt;
+    &lt;/kategoria&gt;
+&lt;/luokitus&gt;
+        </pre>
         
         <p>
             Käyttäjä voi luoda uuden luokituksen tai parantaa tunnistamista. Tiedoston muokkaamisessa olisi hyvä olla kokemusta XML-tiedostoista. Toisaalta valmiita luokituksia voi käyttää esimerkkinä. Ohjelmana voi käyttää esim. Notepad++:aa.
