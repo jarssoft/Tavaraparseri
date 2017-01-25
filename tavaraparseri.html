@@ -250,7 +250,7 @@
                 html="<p><span class=\"virhe\">Tiedostossa on "+virhecount.toString()+" virhettä. <a href=\"#ekavirhe\">Siirry ensimmäiseen virheeseen.</a></span></p>"+html;
             
         }else{
-            html="<p>Lataa tekstitiedosto, jossa lista tavaroista.</p>Tavaralista:  <input type=\"file\" onchange=\"readText(this, kkloaded);\" />";
+            html="<p>Lataa tekstitiedosto, jossa lista tavaroista.</p>Tavaralista (.txt):  <input type=\"file\" onchange=\"readText(this, kkloaded);\" />";
         }
 	
 
@@ -734,13 +734,14 @@
         var html_luok="";
         //html=html+"<tr><th>Pvm.</th><th>Kpl.</th><th>Val</th><th>Tavara</th><th>Kategoria</th></tr>";
         html=html+"<h2>Tunnistamattomat</h2><table border=\"1\"><tr><th>Val</th><th>Kirjattu muoto</th><th>Tunnistuskoodi</th></tr>";
-        html_luok=html_luok+"<h2>Tunnistetut</h2><table border=\"1\"><tr><th>Kirjattu muoto</th><th>Tunnistettu kategoria</th></tr>";
+        html_luok=html_luok+"<h2>Osittain tunnistetut</h2><table border=\"1\"><tr><th>Kirjattu muoto</th><th>Tunnistettu kategoria</th></tr>";
         
         //var paivays = new Date();
         var paivays = null;
         var entpaivays = null;
         var tavaramaara=0;
         var luokitellut=0;
+        var taysintunnistetut=0;
         var lisatyt="";
         
         for (var i = 0; i < arrayLength; i++) {
@@ -817,8 +818,11 @@
 							//luokka=luokka.parentElement;
 							var style="match";
 							//alert(tavara+"=="+luokka.childNodes[0].nodeValue);
-							if(tavara.length == luokka.childNodes[0].nodeValue.length)
-								style="fullmatch";
+							if(tavara.length == luokka.childNodes[0].nodeValue.length){
+								//style="fullmatch";
+								continue;
+								taysintunnistetut=taysintunnistetut+1;
+                            }
                             tavara=tavara.replace(luokka.childNodes[0].nodeValue, '<u><span class=\"'+style+'\">$&</span></u>')
                             luokka=luokka.parentNode.getAttribute("kuvaus");
                             luokitellut++;
@@ -1102,8 +1106,8 @@
 <body onload="checkFileAPI();openCity('Kasikirjoitus');displayContents(orginal(kasikirjoitus));">
     <div id="container">
 
-        Tavaralista:  <input type="file" onchange="readText(this, kkloaded);" />
-        Luokitus: <input type="file" onchange="readText(this, xmlloaded);" />
+        Tavaralista (.txt):  <input type="file" onchange="readText(this, kkloaded);" accept=".txt"/>
+        Luokitus (.xml): <input type="file" onchange="readText(this, xmlloaded);" accept=".xml"/>
  
         <!--<input type="file" onchange='readText("./vihot/mustaharmaavihko.txt");' />-->
         
@@ -1151,12 +1155,20 @@
         
         <h1>Tavaraparseri - ohjelma tavaravirran jäsentämiseen</h1>
         
-        <b><p>Ohjelmalla hallitaan päivittäistä tavaravirtaa. Tekstitiedostossa luetellut tiedot järjestetään taulukoihin. Tavarat voidaan järjestää hierarkisiin ryhmiin esim. käyttötarkoituksen mukaan. Ohjelma soveltuu kierrätyskeskuksiin, kirpputoreille, tms. jossa tarvitaan pienimuotoista tavaraseurantaa. Data voidaan viedä taulukkolaskentaan mukautuvampaa tilastointia varten.</p></b>
+        <b><p>Ohjelmalla jäsennetään päivittäistä tavaravirtaa. Tekstitiedostossa luetellut tiedot järjestetään taulukoihin. Tavarat voidaan järjestää hierarkisiin ryhmiin esim. käyttötarkoituksen mukaan. Ohjelma soveltuu kierrätyskeskuksiin, kirpputoreille, tms. jossa tarvitaan pienimuotoista tavaraseurantaa. Data voidaan viedä taulukkolaskentaan mukautuvampaa tilastointia varten.</p></b>
+        
+        <ol>
+            <li>Kirjoitetaan lista tavaroista otsikoituna päivämäärillä.</li>
+            <li>Valitaan luokitus tai kirjoitetaan se itse.</li>
+            <li>Tunnistetaan listan tavarat automaattisesti. Täydennetään luokitusta, jos tavaraa ei tunnisteta.</li>
+            <li>Muodostetaan taulukko, joka viedään taulukkolaskentaohjelmaan</li>
+        </ol>
 
         <h2>Tavaralista</h2>
             
-        Tavaravirtaa kirjoitetaan tekstitiedostoon rivi riviltä. Kirjaukset tulisi jakaa tiedostoihin jollain mielekkäällä jaolla.
-        Tiedoston muokkaamisesta on enemmän liitteessä Tekstitiedostojen muokkaminen.
+        <p>
+            Tavaravirtaa kirjoitetaan tekstitiedostoon rivi riviltä. Kirjaukset tulisi jakaa tiedostoihin jollain mielekkäällä jaolla. Lista ladataan ohjelmaan vasemmasta ylälaidasta. Ohjelma näyttää mahdolliset virheet.
+        </p>
         
         <pre>
 #Mustaharmaavihko
@@ -1185,9 +1197,7 @@ istuin koroke
         <h3>Kommentit</h3>
         
         <p>
-            Tiedostoon kannattaa lisätä ns. kommentteja. Ne jäsentävät käsikirjoitusta, vaikkakaan niillä ei ole vaikutusta tietoa käsittelevälle ohjelmalle. Kommentit aloitetaan aina risuaidalla (#), jotta kone osaa jättää ne huomioimatta.
-            Sivun vaihtuminen voidaan merkitä esim. #-------. Loppuun kannattaa lisätä sivunumero.
-            Kommentit voi värjätä Notepad++ -ohjelmalla esimerkin tavoin, kun valitsee Language -> INI file.
+            Tiedostoon kannattaa lisätä ns. kommentteja. Ne jäsentävät käsikirjoitusta, vaikkakaan niillä ei ole vaikutusta tietoa käsittelevälle ohjelmalle. Kommentit aloitetaan aina risuaidalla (#), jotta kone osaa jättää ne huomioimatta. Esim. jos lista kopioidaan vihosta, sivun vaihtuminen voidaan merkitä esimerkin tavoin.
         </p>
 
 
@@ -1198,32 +1208,48 @@ istuin koroke
             Tavaralistaus alkaa päivämäärämerkinnästä. Ensimmäisessä päivämäärässä tulee olla vuosiluku. Päivämäärät voivat olla jossain seuraavissa eri muodoissa:
         
             <ul>
-            <li>3.11.2016</li>
-            <li>3.11.-16</li>
-            <li>3.11.</li>
-            <li>3.11</li>
+                <li>3.11.2016</li>
+                <li>3.11.-16</li>
+                <li>3.11.</li>
+                <li>3.11</li>
             </ul>
         </p>
         
         <h3>Tavarat</h3>
         
         <p>
-            Päivämäärän alta, tai joskus jo samalta riviltä, alkaa lista kyseisenä päivänä kirjatuista tavaroista. Tavarat voidaan jakaa rivinvaihdoilla tai pilkuilla. Tavaroiden määrät voivat olla seuraavissa muodoissa:
+            Päivämäärän alta, tai joskus jo samalta riviltä, alkaa lista kyseisenä päivänä kirjatuista tavaroista. Tavarat voidaan jakaa rivinvaihdoilla tai pilkuilla.
+            
             <ul>
-            <li>3 kpl lautasia</li>
-            <li>lautasia 3 kpl</li>
-            <li>3x lautanen</li>
-            <li>3 x lautanen</li>
-            <li>lautanen x3</li>
-            <li>lautanen x 3</li>
-            <li>3 lautasta</li>
-            <li>lautaset 3</li>
+                <li>lautasia</li>
+                <li>juomalaseja, haarukoita</li>
+            </ul>
+        </p>
+            
+        <h3>Kappalemäärät</h3>
+        
+        <p>            
+            Tavaroiden määrät voivat olla seuraavissa muodoissa:
+            
+            <ul>
+                <li>3 kpl lautasia</li>
+                <li>lautasia 3 kpl</li>
+                <li>3x lautanen</li>
+                <li>3 x lautanen</li>
+                <li>lautanen x3</li>
+                <li>lautanen x 3</li>
+                <li>3 lautasta</li>
+                <li>lautaset 3</li>
             </ul>
         </p>
        
         <h2>Luokitus</h2>
         
         <h3>Luokituksen käyttö ohjelmassa</h3>
+        
+        <p>
+            Luokitus-tiedosto kuvaa luokituksen hierarkian, luokkiin kuuluvien tavaroiden tunnisteet, ja kuvauksen luokituksesta.
+        </p>
         
         <p>
             Luokitus avataan ohjelmaan sivun oikeasta ylälaidasta otsikon luokitus -alta. Luokituksen avattua ohjelma näyttää siitä perustietoja.
@@ -1235,33 +1261,71 @@ istuin koroke
         <h3>Luokituksen muokkaaminen</h3>
         
         <pre>
-&lt;luokitus&gt;
-    &lt;kategoria id=&quot;5&quot; kuvaus=&quot;Sanomalehdet, kirjat ja paperitavarat&quot;&gt;
-        &lt;kategoria id=&quot;1&quot; kuvaus=&quot;Kirjat&quot;&gt;
+&lt;luokitus xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+    &lt;kuvaus&gt;
+        &lt;p&gt;Yksilöllisen     kulutuksen     käyttötarkoituksenmukainen  luokitus.&lt;/p&gt;
+    &lt;/kuvaus&gt;
+    &lt;kategoria kuvaus=&quot;Sanomalehdet, kirjat ja paperitavarat&quot;&gt;
+        &lt;kategoria kuvaus=&quot;Kirjat&quot;&gt;
             &lt;tavara&gt;kirja&lt;/tavara&gt;
             &lt;tavara&gt;neiti etsivä&lt;/tavara&gt;
-            &lt;tavara&gt;pokkari&lt;/tavara&gt;
+            &lt;tavara tunnistus=&quot;kokosana&quot;&gt;pokkari&lt;/tavara&gt;
         &lt;/kategoria&gt;
     &lt;/kategoria&gt;
 &lt;/luokitus&gt;
         </pre>
         
         <p>
-            Käyttäjä voi luoda uuden luokituksen tai parantaa tunnistamista. Tiedoston muokkaamisessa olisi hyvä olla kokemusta XML-tiedostoista. Toisaalta valmiita luokituksia voi käyttää esimerkkinä. Ohjelmana voi käyttää esim. Notepad++:aa.
-            Voit luoda hakemistoon Tiedostot\Lähtevät tavarat\kategoriat omia luokitustiedostoja, tai parannella vanhoja. Hakemistossa on määrittelytiedosto kategoria.dtd, jonka avulla voi tarkastaa XML-tiedoston oikeellisuuden. Määrittelyssä on myös ohjeita XML-tiedoston kirjoittamiseen.
+            Käyttäjä voi luoda uuden luokituksen tai parantaa tunnistamista. Tiedoston muokkaamisessa olisi hyvä olla kokemusta XML-tiedostoista. Toisaalta valmiita luokituksia voi käyttää esimerkkinä. Ohjelmana voi käyttää esim. Notepad++:aa. Luokitus-hakemistossa on määrittelytiedosto kategoria.dtd, jonka avulla voi (siihen tarkoitettua ohjelmaa käyttämällä) tarkastaa XML-tiedoston oikeellisuuden. Määrittelyssä on myös ohjeita XML-tiedoston kirjoittamiseen.
         </p>
 
         <h2>Tunnistus</h2>
         
         <p>
-            Kun molemmat tiedostot on ladattu, valitse välilehti nimeltä Tunnistus. Ohjelma käynnistää automaattisen luokituksen, joka voi kestää muutaman sekunnin. Sen jälkeen ohjelma ilmoittaa tunnistuksen tilan, esimerkiksi:
-            Kirjauksista löydettiin 1079 erinimistä tavaraa, joista tunnistettu 697 (64.6%).
+            Kun molemmat tiedostot on ladattu, valitse välilehti nimeltä Tunnistus. Ohjelma käynnistää automaattisen luokituksen, joka voi kestää muutaman sekunnin. Sen jälkeen ohjelma ilmoittaa tunnistuksen tilan, esimerkiksi:            
         </p>
+        
+        <p><cite>
+            Kirjauksista löydettiin 1079 erinimistä tavaraa, joista tunnistettu 697 (64.6%).
+        </cite></p>
+        
+        <p>
+            Tämän alle ohjelma listaa kaksi taulukkoa:
+        </p>
+        
+        <p>
+            Ylimmässä taulukossa näkyy kaikki tavarat, jotka on tunnistettu osittain. Tässä on mahdollista
+            tarkastaa, onko tavara oikeassa luokassa. Tunnistettu osa on merkitty <u><span class="match">keltaisella alleviivauksella</span></u>. Mikäli luokka ei ole oikea,
+            luokitustiedostoon voi jomman kumman korjauksen:
+        </p>
+        
+        <ol>
+            <li>Lisää koko sana pidemmässä muodossa.</li>
+            <li>Lisää ehto, jonka mukaan tunniste on tarkoitettu koko sanalle.</li>
+        </ol>
+        
+        <p>
+            Alimmassa taulukossa näkee kirjaukset, joita ei ole tunnistettu edes osittain.
+            Oikeanpuoleisessa sarakkeessa on koodi, jonka tulee lisätä luokitustiedostoon.
+            Jos halutaan lisätä monia kirjauksia samaan luokkaan, voidaan ne valita ruksaamalla,
+            ja painamalla alapuolella olevaa nappulaa.
+        </p>        
 
-       <h2>Kokonaistaulukko</h2>
+       <h2>Vie taulukkolaskentaohjelmaan</h2>
+       
        <p>
             Kokonaistaulukko-välilehdestä näet tavaroiden määrän eri luokissa (sarakkeet) ja eri päivinä (rivit).
-            Taulukon voi viedä taulukkolaskentaohjelmaan.
+       </p>
+       
+       <p>
+            Taulukon voi viedä taulukkolaskentaohjelmaan. Valitse koko taulukko maalaamalla se hiirellä,
+            tai helpommin klikkaama <i>Valitse koko taulukko</i> -painiketta. Yksittäisiä rivejä voi viedä
+            maalaamalla ne taulukon vasemmalta puolelta. Tämä on kätevää, koska taulukkolaskentaan voidaan lisätä päiviä tarvitsematta kopioida otsikkoa ja edellisiä riviä uudestaan.
+       </p>
+       
+       <p>
+            Taulukkolaskentaohjelmalla voidaan tehdä diagrammeja valitsemalla kiinnostavia luokkia. Värit auttavat tunnistamaan hierarkian eri tason, jotta samoja tavararoita ei lasketa uusiksi
+            hierarkian eri tasoissa.
        </p>
 
         </div>
