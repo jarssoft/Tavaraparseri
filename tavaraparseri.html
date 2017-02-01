@@ -167,7 +167,7 @@
     }
     
     var pattkpl1 = new RegExp("^([1-9][0-9]?) ?(x|kpl|pkt)? ");   
-    var pattkpl2 = new RegExp(" x? ?([1-9][0-9]?) ?(kpl|pkt)?\r$");
+    var pattkpl2 = new RegExp(" x? ?([1-9][0-9]?) ?(kpl|pkt)?\r?$");
     
     var parser = new DOMParser();
     var xmlDoc = null;//parser.parseFromString(document.getElementById('tavaraxml').innerHTML,"text/xml");
@@ -294,7 +294,7 @@
 		];
 
         for (var i = 0; i < arrayLength; i++) {
-            rivi=rivit[i];
+            rivi=rivit[i].trim();
             if(rivi[0]!='#'){
                     
                 //kursivoidaan kappalemäärät
@@ -323,9 +323,9 @@
                         //html=html+"<h2>Viikko "+viikko.toString()+"</h2>";
                         //html=html+"<h3>"+dayNames[1]+"</h3>";
 						var monday = getMonday(paivays);
-						var mondaytxt=monday.getDate().toString()+". "+monthNames[monday.getMonth()];
+						var mondaytxt=monday.getDate().toString()+".&nbsp;"+monthNames[monday.getMonth()];
 						monday.setDate(monday.getDate() + 5); 
-						var fridaytxt=monday.getDate().toString()+". "+monthNames[monday.getMonth()];
+						var fridaytxt=monday.getDate().toString()+".&nbsp;"+monthNames[monday.getMonth()];
                         html=html+"</td></tr><tr><th valign=\"top\">"+viikko.toString()+"<br>("+mondaytxt+"-<br>"+fridaytxt+")</th><td valign=\"top\">"; //uusi rivi taulukossa
                         entviik=viikko;
                         entviikpaiv=1;
@@ -659,7 +659,7 @@
     
     function textToHTMLTableSpinner() {
               
-        displayContents('<div id="loader"></div>');
+        displayContents('<div id="loader"></div><center><span class=\"virhe\">Tunnistetaan tavaroita. Odota...</span></center>');
         setTimeout(function() {displayContents(textToHTMLTable(kasikirjoitus));}, 0);
         //textToHTMLTable(kasikirjoitus);
     }
@@ -740,13 +740,13 @@
         var paivays = null;
         var entpaivays = null;
         var tavaramaara=0;
-        var luokitellut=0;
+        var osittaintunnistetut=0;
         var taysintunnistetut=0;
         var lisatyt="";
         
         for (var i = 0; i < arrayLength; i++) {
         
-            var rivi=rivit[i];
+            var rivi=rivit[i].trim();
             var tavara="";
             var kpl="1";
             var luokka="";
@@ -820,12 +820,12 @@
 							//alert(tavara+"=="+luokka.childNodes[0].nodeValue);
 							if(tavara.length == luokka.childNodes[0].nodeValue.length){
 								//style="fullmatch";
+								taysintunnistetut++;
 								continue;
-								taysintunnistetut=taysintunnistetut+1;
                             }
                             tavara=tavara.replace(luokka.childNodes[0].nodeValue, '<u><span class=\"'+style+'\">$&</span></u>')
                             luokka=luokka.parentNode.getAttribute("kuvaus");
-                            luokitellut++;
+                            osittaintunnistetut++;
                             html_luok=html_luok+"<tr><td>"+tavara+"</td><td>"+luokka+"</td></tr>";
                         }
                     
@@ -850,6 +850,7 @@
         html+="</table>";
         html_luok+="</table>";
         
+		var luokitellut = taysintunnistetut + osittaintunnistetut;
         var yhteenveto="<p>Kirjauksista löydettiin <b>"+tavaramaara+"</b> erinimistä tavaraa, joista tunnistettu <b>"+luokitellut+" ("+(luokitellut/tavaramaara*100).toFixed(1)+"%)</b>.</p>";
 	
         var nappi="<p>Voit valita tiettyyn kategoriaan kuuluvia tavaroita, ja luoda tunnistustiedot automaattisesti.</p><button onclick=\"kopioiTunnisteet();\"  title=\"\">Muodosta automaattinen tunnistus valituille tavaroille</button><div id\=\"leikepoyta\"></div>";
@@ -1167,7 +1168,9 @@
         <h2>Tavaralista</h2>
             
         <p>
-            Tavaravirtaa kirjoitetaan tekstitiedostoon rivi riviltä. Kirjaukset tulisi jakaa tiedostoihin jollain mielekkäällä jaolla. Lista ladataan ohjelmaan vasemmasta ylälaidasta. Ohjelma näyttää mahdolliset virheet.
+            Tavaravirtaa kirjoitetaan tekstitiedostoon rivi riviltä. Kirjaukset tulisi jakaa useisiin tiedostoihin jollain mielekkäällä jaolla. 
+			Kirjoittamisessa voi käyttää esim. Windowsin Muistio-ohjelmaa. Käytä tallennettessa UTF-8 -muotoa, jotta ääkköset näkyvät oikein.
+			Lista ladataan ohjelmaan vasemmasta ylälaidasta. Ohjelma näyttää mahdolliset virheet.
         </p>
         
         <pre>
